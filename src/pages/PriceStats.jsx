@@ -2,14 +2,14 @@ import React from "react";
 
 const PriceStats = () => {
   return (
-    <section className="bg-gray-100 py-12 dark:bg-gray-800" data-aos="zoom-in-left" data-aos-easing="ease-in-out"
+    <section className="bg-gray-100 py-12" data-aos="zoom-in-left" data-aos-easing="ease-in-out"
      data-aos-duration="1500">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
           CosCoin.com
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-700">
+          <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="w-full flex items-start gap-x-4">
                 <img
                     src="https://www.bitcoin.com/images/uploads/home/btc-logo.png"
@@ -21,7 +21,7 @@ const PriceStats = () => {
             <p className="text-4xl font-bold">$105,192.00</p>
             <p className="text-red-500">-0.15%</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-700">
+          <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="w-full flex items-start gap-x-4">
                 <img src="https://coin-images.coingecko.com/coins/images/279/large/ethereum.png"  alt="Ethereum Logo"
                     className="w-10 h-10 rounded-lg" />

@@ -52,7 +52,7 @@ const ContactForm = () => {
 
 
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-md dark:bg-gray-800" id="contact" data-aos="zoom-in-right" data-aos-easing="ease-in-out"
+    <div className="bg-gray-100 p-6 rounded-lg shadow-md" id="contact" data-aos="zoom-in-right" data-aos-easing="ease-in-out"
      data-aos-duration="1500">
       <h2 className="text-2xl font-bold mb-4 md:text-3xl text-center">Contact Us</h2>
       <form onSubmit={sendEmail} ref={form}>
