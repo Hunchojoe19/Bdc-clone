@@ -63,7 +63,7 @@ const ContactForm = () => {
           <input
             type="text"
             name="user_name"
-            className="w-[40%] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
+            className="w-full md:w-[40%] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
             placeholder="Enter your full name"
             required
           />
@@ -75,7 +75,7 @@ const ContactForm = () => {
           <input
             type="email"
             name="user_email"   
-            className="w-[40%] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
+            className="w-full md:w-[40%] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
             placeholder="Enter your email"
             required
           />
