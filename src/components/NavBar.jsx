@@ -41,12 +41,15 @@ const NavBar = () => {
   
         <div className="hidden md:flex space-x-4 items-center">
           <p>
-            <a href="#" className="hover:text-gray-400 list-none">
+            <a href="#contact" className="hover:text-gray-400 list-none">
               Contact Us
             </a>
           </p>
-          <button className="bg-green-600 px-4 py-2 cursor-pointer rounded-lg hover:bg-green-700">
-            Get Started
+          <button className="bg-blue-500 px-4 py-2 cursor-pointer rounded-lg hover:bg-blue-700">
+            <a href="#contact">
+                 Get Started
+            </a>
+           
           </button>
         </div>
       </div>
@@ -54,12 +57,12 @@ const NavBar = () => {
       {isMenuOpen && (
         <div className="md:hidden h-[200px] py-4 bg-gray-800 p-4">
           <p>
-            <a href="#" className="hover:text-gray-400 list-none">
+            <a href="#contact" className="hover:text-gray-400 list-none">
               Contact Us
             </a>
           </p>
           <div className="mt-4 space-y-4">
-            <button className="w-full bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700">
+            <button className="w-full bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700">
               Get Started
             </button>
           </div>

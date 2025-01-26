@@ -20,7 +20,8 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="bg-gray-800 text-white py-12">
+    <section className="bg-gray-800 text-white py-12" data-aos="flip-left" data-aos-easing="ease-in-out"
+     data-aos-duration="1500">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
           Join the growing community of users who trust our platform

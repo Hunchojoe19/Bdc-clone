@@ -24,8 +24,10 @@ const Hero = () => {
             <p className="text-gray-300">Start your journey with just a few clicks.</p>
           </div>
         </div>
-        <button className="mt-10 bg-blue-600 px-8 py-3 rounded-lg text-lg hover:bg-blue-700">
-          Get Started
+        <button className="mt-10 bg-blue-600 px-8 cursor-pointer py-3 rounded-lg text-lg hover:bg-blue-700">
+         <a href="#contact">
+                 Get Started
+            </a>
         </button>
       </div>
     </section>

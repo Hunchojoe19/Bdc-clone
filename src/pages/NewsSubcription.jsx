@@ -2,7 +2,8 @@ import React from "react";
 
 const NewsSubscription = () => {
   return (
-    <section className="w-full bg-gray-800 text-white py-12">
+    <section className="w-full bg-gray-800 text-white py-12" data-aos="fade-up-right" data-aos-easing="ease-in-out"
+     data-aos-duration="1500">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
           Stay up to date with the latest Bitcoin and crypto news

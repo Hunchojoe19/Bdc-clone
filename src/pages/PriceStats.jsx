@@ -2,7 +2,8 @@ import React from "react";
 
 const PriceStats = () => {
   return (
-    <section className="bg-gray-100 py-12 dark:bg-gray-800">
+    <section className="bg-gray-100 py-12 dark:bg-gray-800" data-aos="zoom-in-left" data-aos-easing="ease-in-out"
+     data-aos-duration="1500">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
           CosCoin.com
@@ -31,7 +32,7 @@ const PriceStats = () => {
           </div>
         </div>
         <div className="mt-8 text-center">
-          <button className="bg-blue-600 px-8 py-3 rounded-lg text-white hover:bg-blue-700">
+          <button className="cursor-pointer bg-blue-600 px-8 py-3 rounded-lg text-white hover:bg-blue-700">
             Get Bitcoin
           </button>
         </div>

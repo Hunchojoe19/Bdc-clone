@@ -2,7 +2,8 @@ import React from "react";
 
 const Web3Gateway = () => {
   return (
-    <section className="bg-gray-100 py-12 dark:bg-gray-800">
+    <section className="bg-gray-100 py-12 dark:bg-gray-800" data-aos="zoom-in-up" data-aos-easing="ease-in-out"
+     data-aos-duration="1500">
       <div className="container mx-auto px-4 flex flex-col space-y-12">
         <div className="w-full flex flex-col md:flex-row md:gap-x-4 md:items-center bg-white p-6 rounded-lg shadow-md dark:bg-gray-700">
         <img loading="lazy" src="https://www.bitcoin.com/static/4dab53eae9b571c73a734de7cea50bd9/89b95/web3gateway.png" className="md:w-1/2"/>

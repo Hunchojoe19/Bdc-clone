@@ -1,97 +1,109 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { ClipLoader } from 'react-spinners';
 
 const ContactForm = () => {
-  const [email, setEmail] = useState("");
-  const [comment, setComment] = useState("");
-  const [isSending, setIsSending] = useState(false);
+
+    const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
-  const [error, setError] = useState("");
+  const [message, setMessage] = useState(
+    {
+      error: "",
+      success: "",
+    }
+  );
 
-  const handleSubmit = async (e) => {
+  useEffect(()=> {
+    const timer = setTimeout(() => {
+      setIsSent(false);
+      setMessage({error: "", success: ""});
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [isSent, message])
+
+  const form = useRef();
+
+
+  const sendEmail = (e) => {
     e.preventDefault();
-
-    if (!email || !comment) {
-      setError("Please fill in all fields.");
-      return;
-    }
-
     setIsSending(true);
-    setError("");
-
-    try {
-      // Replace these with your EmailJS credentials
-      const serviceId = "YOUR_SERVICE_ID";
-      const templateId = "YOUR_TEMPLATE_ID";
-      const publicKey = "YOUR_PUBLIC_KEY";
-
-      // Send email using EmailJS
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          to_email: "your-email@example.com", // Replace with your email
-          from_email: email,
-          message: comment,
+   
+    emailjs
+      .sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,form.current, 
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(
+        () => {
+          setIsSending(false);
+          setIsSent(true);
+          setMessage({...message, success: "Thank you! Your comment has been sent."});
+          form.current.reset();
+          console.log('SUCCESS!');
         },
-        publicKey
+        (error) => {
+          setIsSending(false);
+          setMessage(error.text);
+          console.log('FAILED...', error.text);
+        },
       );
-
-      setIsSent(true);
-      setEmail("");
-      setComment("");
-    } catch (err) {
-      setError("Failed to send the comment. Please try again.");
-      console.error(err);
-    } finally {
-      setIsSending(false);
-    }
   };
 
+
+
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-md dark:bg-gray-800">
+    <div className="bg-gray-100 p-6 rounded-lg shadow-md dark:bg-gray-800" id="contact" data-aos="zoom-in-right" data-aos-easing="ease-in-out"
+     data-aos-duration="1500">
       <h2 className="text-2xl font-bold mb-4 md:text-3xl text-center">Contact Us</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={sendEmail} ref={form}>
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-2">
+            Name
+          </label>
+          <input
+            type="text"
+            name="user_name"
+            className="w-[40%] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium mb-2">
-            Your Email
+            Email address
           </label>
           <input
             type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-[60%] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
+            name="user_email"   
+            className="w-[40%] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
             placeholder="Enter your email"
             required
           />
         </div>
         <div className="mb-4">
           <label htmlFor="comment" className="block text-sm font-medium mb-2">
-            Comment or Suggestion
+            Comment
           </label>
           <textarea
-            id="comment"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            name="message"
+            className="w-full lg:w-[60%] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             rows="4"
             placeholder="Enter your comment or suggestion"
             required
           />
         </div>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
+        {message?.error && <p className="text-red-500 mb-4">{message.error}</p>}
         {isSent && (
           <p className="text-green-500 mb-4">
-            Thank you! Your comment has been sent.
+            {message.success}
           </p>
         )}
         <button
           type="submit"
           disabled={isSending}
-          className="bg-blue-600 px-6 py-2 rounded-lg text-white hover:bg-blue-700 disabled:bg-blue-400"
+          className="bg-blue-600 cursor-pointer px-6 py-2 rounded-lg text-white hover:bg-blue-700 disabled:bg-blue-400"
         >
-          {isSending ? "Sending..." : "Send"}
+          {isSending ? <ClipLoader size={20} color={"#fff"} /> : "Send"}
         </button>
       </form>
     </div>
