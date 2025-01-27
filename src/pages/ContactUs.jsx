@@ -24,32 +24,49 @@ const ContactForm = () => {
   const form = useRef();
 
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setIsSending(true);
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+  //   setIsSending(true);
    
-    emailjs
-      .sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,form.current, 
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
-      .then(
-        () => {
-          setIsSending(false);
-          setIsSent(true);
-          setMessage({...message, success: "Thank you! Your comment has been sent."});
-          form.current.reset();
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          setIsSending(false);
-          setMessage(error.text);
-          console.log('FAILED...', error.text);
-        },
-      );
-  };
+  //   emailjs
+  //     .sendForm(
+  //       // import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  //       // import.meta.env.VITE_EMAILJS_TEMPLATE_ID,form.current, 
+  //       // import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+  //       "service_e109427",
+  //       "template_a8uhhzr",
+  //       form.current,
+  //       {
+  //         publicKey: "X_9diLxlcknyczloR"
+  //       }
+  //     )
+  //     .then(
+  //       () => {
+  //         setIsSending(false);
+  //         setIsSent(true);
+  //         setMessage({...message, success: "Thank you! Your comment has been sent."});
+  //         form.current.reset();
+  //         console.log('SUCCESS!');
+  //       },
+  //       (error) => {
+  //         setIsSending(false);
+  //         setMessage(error.text);
+  //         console.log('FAILED...', error.text);
+  //       },
+  //     );
+  // };
 
+  const sendEmail = (e) => {
+  e.preventDefault();
+  const formData = new FormData(form.current);
+  const userName = formData.get('user_name');
+  const userEmail = formData.get('user_email');
+  const userMessage = formData.get('message');
 
+  const mailtoLink = `mailto:jnscos101@aol.com?subject=Contact%20Us%20Form%20Submission&body=Name:%20${encodeURIComponent(userName)}%0AEmail:%20${encodeURIComponent(userEmail)}%0AMessage:%20${encodeURIComponent(userMessage)}`;
+
+  window.location.href = mailtoLink;
+};
 
   return (
     <div className="bg-gray-100 p-6 rounded-lg shadow-md" id="contact" data-aos="zoom-in-right" data-aos-easing="ease-in-out"
@@ -98,6 +115,8 @@ const ContactForm = () => {
             {message.success}
           </p>
         )}
+        <a href="mailto:jnscos101@aol.com">
+
         <button
           type="submit"
           disabled={isSending}
@@ -105,6 +124,7 @@ const ContactForm = () => {
         >
           {isSending ? <ClipLoader size={20} color={"#fff"} /> : "Send"}
         </button>
+        </a>
       </form>
     </div>
   );
