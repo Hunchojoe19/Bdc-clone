@@ -41,7 +41,7 @@ const Footer = () => {
           <p className="text-gray-400">
             ©2025 CosCoin. All rights reserved.
           </p>
-          <p className="text-gray-400">support@CosCoin.com</p>
+          <p className="text-gray-400">coscoin.info</p>
         </div>
       </div>
     </div>
