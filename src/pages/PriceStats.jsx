@@ -6,7 +6,7 @@ const PriceStats = () => {
      data-aos-duration="1500">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
-          CosCoin Price Stats
+          CoinDoc Price Stats
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md">

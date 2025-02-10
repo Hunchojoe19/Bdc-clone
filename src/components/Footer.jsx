@@ -39,9 +39,9 @@ const Footer = () => {
         <div className="mt-8 border-t flex flex-col items-center space-y-2 border-gray-800 pt-8 text-center">
           <img src={logo} className="w-20 h-20 object-cover"/>
           <p className="text-gray-400">
-            ©2025 CosCoin. All rights reserved.
+            ©2025 CoinDoc. All rights reserved.
           </p>
-          <p className="text-gray-400">coscoin.info</p>
+          <p className="text-gray-400">CoinDoc.info</p>
         </div>
       </div>
     </div>

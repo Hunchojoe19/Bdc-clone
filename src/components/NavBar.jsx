@@ -26,8 +26,8 @@ const NavBar = () => {
     >
       <div className="container mx-auto flex justify-between items-center p-4">
         <div className="text-2xl font-bold flex items-center">
-          <img src={logo} alt="CosCoin Logo" className="h-8 mr-2" />
-          <span className="text-3xl text-white font-bold">CosCoin</span>
+          <img src={logo} alt="CoinDoc Logo" className="h-8 mr-2" />
+          <span className="text-3xl text-white font-bold">CoinDoc</span>
         </div>
 
   

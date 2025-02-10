@@ -4,17 +4,17 @@ const Testimonials = () => {
   const testimonials = [
     {
       rating: "★★★★★",
-      text: "CosCoin.info made it so easy to buy crypto. The user interface is simple, and I love how quickly my transactions go through!",
+      text: "CoinDoc.info made it so easy to buy crypto. The user interface is simple, and I love how quickly my transactions go through!",
       author: "Samuel M",
     },
     {
       rating: "★★★★",
-      text: "CosCoin.info has transformed my experience with cryptocurrency! The platform is user-friendly and my transactions are processed in no time.",
+      text: "CoinDoc.info has transformed my experience with cryptocurrency! The platform is user-friendly and my transactions are processed in no time.",
       author: "Rachel K",
     },
     {
       rating: "★★★★★",
-      text: "Thanks to CosCoin.info, I feel confident investing in crypto. The website is intuitive, and my transactions happen instantly!",
+      text: "Thanks to CoinDoc.info, I feel confident investing in crypto. The website is intuitive, and my transactions happen instantly!",
       author: "Rahim M",
     },
   ];
